@@ -1,0 +1,60 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    text-align: right;
+    color: red;
+    font-size: 40px;
+}
+
+.main-text {
+    text-align: right;
+    color: green;
+    text-decoration: underline;
+    font-size: 38px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 2px solid black;
+    width: 80%;
+}
+
+th,
+td {
+    border: 2px solid black;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: lightblue;
+}
+
+.table-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.level1 {
+    list-style-type: square;
+}
+
+.level2 {
+    list-style-type: circle;
+    margin-left: 30px;
+}
+
+.level3 {
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+.nav {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+}
