@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контракты сотрудников</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid darkcyan;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+            color: darkcyan;
+        }
+        
+        button,
+        input[type="button"] {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            cursor: pointer;
+            background-color: white;
+            color: darkcyan;
+            border: 2px solid darkcyan;
+            border-radius: 4px;
+            margin: 4px;
+        }
+        
+        button:hover,
+        input[type="button"]:hover {
+            background-color: darkcyan;
+            color: white;
+        }
+        
+        input,
+        select {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 0.85rem;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .week-block {
+            background: #e6f7f7;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .week-block input[type="text"] {
+            background: #fff;
+            width: 80px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .employee-row {
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .employee-row input {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .search-panel {
+            background: #f5f5f5;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-box {
+            background: #fefce8;
+            border-left: 4px solid darkcyan;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn-group {
+            margin: 15px 0;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+
+<body onload="createEmployees(); setFocusOnFirst()">
+    <div class="container">
+        <h2>Контракты сотрудников</h2>
+
+        <h3>📅 Определение номера недели в году</h3>
+        <div class="week-block">
+            <label>Выберите дату:</label>
+            <input type="date" id="weekDate">
+            <button onclick="getWeekFromInput()">Определить номер недели</button>
+            <label>Результат:</label>
+            <input type="text" id="weekResult" readonly placeholder="№ недели">
+        </div>
+
+        <hr>
+
+        <div id="employees"></div>
+
+        <div class="btn-group">
+            <button onclick="createEmployees()">Создать форму</button>
+            <button onclick="calculateContracts()">Рассчитать все контракты</button>
+        </div>
+
+        <hr>
+
+        <h3>Поиск по времени года</h3>
+        <div class="search-panel">
+            <select id="seasonSelect">
+            <option value="winter">Зима</option>
+            <option value="spring">Весна</option>
+            <option value="summer">Лето</option>
+            <option value="autumn">Осень</option>
+        </select>
+            <button onclick="findBySeason()">Найти</button>
+        </div>
+
+        <h3>Поиск по кварталу</h3>
+        <div class="search-panel">
+            <select id="quarterSelect">
+            <option value="1">1 квартал</option>
+            <option value="2">2 квартал</option>
+            <option value="3">3 квартал</option>
+            <option value="4">4 квартал</option>
+        </select>
+            <button onclick="findByQuarter()">Найти</button>
+        </div>
+
+        <h3>Активные контракты на дату</h3>
+        <div class="search-panel">
+            <input type="date" id="activeDate">
+            <button onclick="findByActiveOnDate()">Показать</button>
+        </div>
+
+        <h3>Завершённые контракты на дату</h3>
+        <div class="search-panel">
+            <input type="date" id="expiredDate">
+            <button onclick="findByExpiredOnDate()">Показать</button>
+        </div>
+
+        <hr>
+
+        <div id="result" class="result-box">
+            Нажмите "Создать форму" и заполните данные
+        </div>
+    </div>
+</body>
+
+</html>

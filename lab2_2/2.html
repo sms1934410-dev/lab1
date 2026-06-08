@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб. работа №3 — расстояние</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #eceff5;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Inter', sans-serif;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .wrap {
+            max-width: 480px;
+            width: 100%;
+            background: #ffffffdb;
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        h3 {
+            font-size: 1.65rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+            margin-bottom: 1.2rem;
+            color: #1f2b38;
+            border-bottom: 2px solid #cfdfed;
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+        
+        .coord-form {
+            margin: 1.8rem 0 1rem;
+        }
+        
+        .field {
+            background: #f4f7fc;
+            border-radius: 1.5rem;
+            padding: 0.5rem 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .field label {
+            font-weight: 460;
+            color: #2c3f55;
+            font-size: 1rem;
+        }
+        
+        .field input {
+            background: white;
+            border: 1px solid #cbdde9;
+            border-radius: 40px;
+            padding: 0.5rem 1rem;
+            width: 140px;
+            font-size: 1rem;
+            text-align: center;
+            transition: 0.1s;
+        }
+        
+        .field input:focus {
+            border-color: #3a7ca5;
+            outline: none;
+            box-shadow: 0 0 0 2px #bdd9f0;
+        }
+        
+        button {
+            background: #2c3e50;
+            border: none;
+            color: white;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 480;
+            cursor: pointer;
+            margin: 0.6rem 0 1.2rem;
+            transition: 0.12s linear;
+        }
+        
+        button:active {
+            background: #1e2f3c;
+            transform: scale(0.97);
+        }
+        
+        .result-card {
+            background: #eef3fa;
+            border-radius: 1.8rem;
+            padding: 1rem 1.2rem;
+            margin: 1.4rem 0 1.8rem;
+        }
+        
+        .result-card span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #5e727e;
+        }
+        
+        #distanceResult {
+            width: 100%;
+            background: white;
+            border: 1px solid #ccdeec;
+            border-radius: 60px;
+            padding: 0.7rem 1rem;
+            font-size: 1rem;
+            font-weight: 450;
+            margin-top: 0.5rem;
+            color: #1a2c3c;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            justify-content: center;
+            padding-top: 0.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            background: #eef2f0;
+            padding: 0.25rem 1rem;
+            border-radius: 36px;
+            color: #2c4b66;
+        }
+        
+        .nav-links a:hover {
+            background: #e0e8f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h3>⟡ до начала координат</h3>
+        <div class="coord-form">
+            <div class="field">
+                <label>координата X</label>
+                <input type="number" id="x" step="any" value="3.0">
+            </div>
+            <div class="field">
+                <label>координата Y</label>
+                <input type="number" id="y" step="any" value="4.0">
+            </div>
+            <button id="distBtn">рассчитать</button>
+        </div>
+
+        <div class="result-card">
+            <span>📐 расстояние r = √(x² + y²)</span>
+            <input type="text" id="distanceResult" readonly placeholder="0.0000">
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">◀ площадь</a>
+            <a href="3.html">обмен значениями ▶</a>
+        </div>
+    </div>
+
+    <script>
+        const xCoord = document.getElementById('x');
+        const yCoord = document.getElementById('y');
+        const distOut = document.getElementById('distanceResult');
+        const btnDist = document.getElementById('distBtn');
+
+        function computeDistance() {
+            let x = parseFloat(xCoord.value) || 0;
+            let y = parseFloat(yCoord.value) || 0;
+            let distance = Math.hypot(x, y);
+            distOut.value = distance.toFixed(6);
+        }
+
+        btnDist.addEventListener('click', computeDistance);
+        xCoord.addEventListener('input', computeDistance);
+        yCoord.addEventListener('input', computeDistance);
+        computeDistance();
+    </script>
+</body>
+
+</html>

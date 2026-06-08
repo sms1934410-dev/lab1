@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР12 - Bootstrap Вариант 4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #e9ecef;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+        
+        .container {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .block {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            min-height: 250px;
+        }
+        
+        .block h4 {
+            margin-top: 10px;
+            color: #1a5276;
+        }
+        
+        .block img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .inner-row {
+            background: #e2e8f0;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        
+        .inner-block {
+            background: #cbd5e1;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            padding: 8px;
+            text-align: center;
+            font-size: 13px;
+        }
+        
+        .empty-space {
+            background: #f1c40f;
+            border: 2px dashed #e67e22;
+            text-align: center;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .info-panel {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>СПОРТИВНЫЙ КЛУБ</h1>
+        <div class="subtitle">Вариант 4 - Адаптивная сетка</div>
+
+        <div class="info-panel">
+            <strong>Условия варианта:</strong><br> • md (≥992px): в 1 ряду 4 блока по 3 колонки<br> • sm (768-991px): во 2 ряду исчезает 2-й вложенный блок<br> • xs (≤767px): в 3 ряду вместо 1-го блока пустое пространство
+        </div>
+
+        <!-- РЯД 1: 4 блока (на md - по 3 колонки, на sm - по 3, на xs - по 6) -->
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=5a18167e516d203b3c7abba2c8dc22ab465f0ffa-4352086-images-thumbs&n=13" alt="">
+                    <h4>Тренажеры</h4>
+                    <p>Силовой зал</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/get-shedevrum/10254163/img_be45f621f86111efb20b7acc1207f44c/orig" alt="">
+                    <h4>Кардио</h4>
+                    <p>Беговые дорожки</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=8c179574c9beae5216689adb30e9c8ad_l-5450523-images-thumbs&n=13" alt="">
+                    <h4>Бассейн</h4>
+                    <p>25 метров</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=01c612deb7fb44bc945e5604be8459ab_l-4255692-images-thumbs&n=13" alt="">
+                    <h4>Йога</h4>
+                    <p>Зал для растяжки</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="block">
+                    <h4>Групповые занятия</h4>
+                    <div class="row inner-row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="inner-block"><strong>Аэробика</strong><br>Пн/Ср/Пт</div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 hidden-sm">
+                            <div class="inner-block"><strong>Пилатес</strong><br>Вт/Чт</div>
+                        </div>
+                    </div>
+                    <p style="margin-top:10px; font-size:12px;">* на планшетах (sm) блок "Пилатес" скрыт</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="block">
+                    <img src="https://t3.ftcdn.net/jpg/07/47/53/80/360_F_747538066_VVvbGfC8G376LZqb7tJaN0NzT0jbviK6.jpg" alt="">
+                    <h4>СПА-зона</h4>
+                    <p>Сауна, массаж</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 col-sm-12 hidden-xs">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=28536eaac7f68217637e5beb4f9705b9_l-12939114-images-thumbs&n=13" alt="">
+                    <h4>Персональный тренинг</h4>
+                    <p>Индивидуальные программы</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=a7ab1ba7704ea39f84261126468a1d2c73f3ec9e-5493168-images-thumbs&n=13" alt="">
+                    <h4>Фитнес-бар</h4>
+                    <p>Коктейли</p>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="block">
+                    <img src="https://avatars.mds.yandex.net/i?id=1040c0b6b0c6f76e1e3f896c52ccb323_l-10262965-images-thumbs&n=13" alt="">
+                    <h4>Раздевалки</h4>
+                    <p>Полотенца</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row visible-xs-block">
+            <div class="col-xs-12">
+                <div class="empty-space">
+                    <strong>ПУСТОЕ ПРОСТРАНСТВО</strong> (условие xs - вместо 1-го блока)
+                </div>
+            </div>
+        </div>
+
+        <div class="subtitle" style="margin-top:20px; border-top:1px solid #ddd; padding-top:15px;">
+            Лабораторная работа №12 - Выполнил: __________ Группа: __________
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

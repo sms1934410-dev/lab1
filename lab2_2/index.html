@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб. работа №3 — площадь</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f1f4f8;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+            padding: 2rem 1rem;
+            color: #1e2a3e;
+        }
+        
+        .card {
+            max-width: 560px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem 2.2rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+            backdrop-filter: blur(0px);
+            transition: all 0.2s ease;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 540;
+            letter-spacing: -0.3px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            color: #0f172a;
+        }
+        
+        h4 {
+            font-size: 0.9rem;
+            font-weight: 520;
+            margin: 1rem 0 0.6rem 0;
+            color: #2c3e50;
+            letter-spacing: -0.2px;
+        }
+        
+        .coord-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+        
+        .coord-group label {
+            background: #ffffffcc;
+            padding: 0.35rem 0.9rem;
+            border-radius: 48px;
+            font-size: 0.85rem;
+            font-weight: 470;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid #e2e8f0;
+            transition: 0.1s linear;
+        }
+        
+        input {
+            font-family: inherit;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 14px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            width: 85px;
+            transition: 0.1s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        
+        button {
+            background: #1e293b;
+            color: white;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 480;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            transition: background 0.2s, transform 0.05s;
+        }
+        
+        button:active {
+            transform: scale(0.97);
+        }
+        
+        button:hover {
+            background: #0f172a;
+        }
+        
+        .result-block {
+            margin-top: 1.8rem;
+            background: #f8fafc;
+            padding: 0.8rem 1rem;
+            border-radius: 1.5rem;
+            border: 1px solid #e2edf7;
+        }
+        
+        .result-block h3 {
+            font-size: 1rem;
+            font-weight: 520;
+            margin-bottom: 0.5rem;
+        }
+        
+        #Res {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #dce5ef;
+            font-size: 1rem;
+            padding: 0.65rem 1rem;
+            border-radius: 40px;
+            color: #0f172a;
+            font-weight: 450;
+        }
+        
+        .links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.85rem;
+        }
+        
+        .links a {
+            text-decoration: none;
+            color: #4b5563;
+            padding: 0.3rem 0.8rem;
+            border-radius: 32px;
+            background: #eef2f6;
+            transition: 0.15s;
+        }
+        
+        .links a:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        
+        hr {
+            margin: 1rem 0 0.2rem;
+            border: none;
+            border-top: 1.5px dotted #cbd5e6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>▸ площадь треугольника</h1>
+        <form id="triangleForm">
+            <h4>точка A</h4>
+            <div class="coord-group">
+                <label>x₁ <input type="number" id="X1" value="0" step="any"></label>
+                <label>y₁ <input type="number" id="Y1" value="0" step="any"></label>
+            </div>
+
+            <h4>точка B</h4>
+            <div class="coord-group">
+                <label>x₂ <input type="number" id="X2" value="3" step="any"></label>
+                <label>y₂ <input type="number" id="Y2" value="0" step="any"></label>
+            </div>
+
+            <h4>точка C</h4>
+            <div class="coord-group">
+                <label>x₃ <input type="number" id="X3" value="0" step="any"></label>
+                <label>y₃ <input type="number" id="Y3" value="4" step="any"></label>
+            </div>
+
+            <button type="button" id="calcBtn">вычислить</button>
+        </form>
+
+        <div class="result-block">
+            <h3>⋮ результат</h3>
+            <input type="text" id="Res" readonly placeholder="—">
+        </div>
+        <hr>
+        <div class="links">
+            <a href="2.html">скрипт №2</a>
+            <a href="3.html">скрипт №3</a>
+        </div>
+    </div>
+
+    <script>
+        const X1 = document.getElementById('X1');
+        const Y1 = document.getElementById('Y1');
+        const X2 = document.getElementById('X2');
+        const Y2 = document.getElementById('Y2');
+        const X3 = document.getElementById('X3');
+        const Y3 = document.getElementById('Y3');
+        const resultField = document.getElementById('Res');
+        const calcBtn = document.getElementById('calcBtn');
+
+        function getDistance(x1, y1, x2, y2) {
+            return Math.hypot(x2 - x1, y2 - y1);
+        }
+
+        function calculateSquare() {
+            let x1 = parseFloat(X1.value) || 0;
+            let y1 = parseFloat(Y1.value) || 0;
+            let x2 = parseFloat(X2.value) || 0;
+            let y2 = parseFloat(Y2.value) || 0;
+            let x3 = parseFloat(X3.value) || 0;
+            let y3 = parseFloat(Y3.value) || 0;
+
+            let a = getDistance(x1, y1, x2, y2);
+            let b = getDistance(x2, y2, x3, y3);
+            let c = getDistance(x3, y3, x1, y1);
+
+            if (a + b <= c || a + c <= b || b + c <= a) {
+                resultField.value = '❌ треугольник не существует';
+                return;
+            }
+
+            let p = (a + b + c) / 2;
+            let square = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            resultField.value = square.toFixed(5) + ' кв. ед.';
+        }
+
+        calcBtn.addEventListener('click', calculateSquare);
+        [X1, Y1, X2, Y2, X3, Y3].forEach(inp => inp.addEventListener('input', calculateSquare));
+        calculateSquare();
+    </script>
+</body>
+
+</html>

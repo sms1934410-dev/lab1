@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        
+        button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #e0e0e0;
+        }
+        
+        .result {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Задание 1. Проверка возраста и пароля</h2>
+
+        <button onclick="check()">Начать</button>
+
+        <div id="result" class="result">
+            Нажмите кнопку
+        </div>
+
+        <a href="index.html" class="back">← На главную</a>
+    </div>
+
+    <script>
+        function check() {
+            let resultDiv = document.getElementById('result');
+            let age = prompt("Введите возраст:");
+
+            if (age === null) {
+                resultDiv.innerHTML = "Вход отменён";
+                return;
+            }
+
+            age = Number(age);
+
+            if (age >= 14 && age <= 18) {
+                let pwd = prompt("Введите пароль (Родительский контроль):");
+                if (pwd === null) {
+                    resultDiv.innerHTML = "Вход отменён";
+                } else if (pwd === "Родительский контроль") {
+                    resultDiv.innerHTML = "Добро пожаловать!";
+                } else {
+                    resultDiv.innerHTML = "Пароль неверен";
+                }
+            } else if (age > 18) {
+                let pwd = prompt("Введите пароль (Я взрослый):");
+                if (pwd === null) {
+                    resultDiv.innerHTML = "Вход отменён";
+                } else if (pwd === "Я взрослый") {
+                    resultDiv.innerHTML = "Добро пожаловать!";
+                } else {
+                    resultDiv.innerHTML = "Пароль неверен";
+                }
+            } else {
+                resultDiv.innerHTML = "Странный возраст";
+            }
+        }
+    </script>
+</body>
+
+</html>

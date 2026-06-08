@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab8</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <style>
+        #forfooter img {
+            width: 250px;
+            height: 200px;
+            margin: 10px;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+            /* мягкий градиент */
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+            background: #cce5ff;
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 15px auto;
+        }
+        
+        #moto_models {
+            padding-left: 20px;
+        }
+        
+        #moto_models li {
+            margin: 5px 0;
+        }
+        
+        #moto_table {
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        #moto_table td {
+            padding: 8px 12px;
+            text-align: center;
+        }
+        
+        #forfooter img:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+    </style>
+
+    <h2>Список моделей</h2>
+
+    <ul id="moto_models">
+        <li>мотоцикл Yamaha</li>
+        <li>машина BMW</li>
+        <li>мотоцикл Honda</li>
+        <li>велосипед</li>
+        <li>мотоцикл Kawasaki</li>
+    </ul>
+
+    <hr>
+
+    <h2>Производители</h2>
+
+    <div id="forfooter">
+        <img src="1.jfif" title="Производители">
+        <img src="2.jfif" title="Другое">
+        <img src="3.jfif" title="Производители">
+    </div>
+
+    <hr>
+
+    <h2>Таблица</h2>
+
+    <table id="moto_table" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

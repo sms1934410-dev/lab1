@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киберспортивные команды | Cyber Legends</title>
+
+    <style>
+        /* Общий фон - тёмный киберпространство */
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #0d1117 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Orbitron', 'Segoe UI', 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        /* Контейнер для центрирования */
+        
+        .wrapper {
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+        /* Заголовок в неоновом стиле */
+        
+        .title h1 {
+            color: #00ffcc;
+            font-size: 52px;
+            letter-spacing: 5px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00aaff;
+            font-weight: 700;
+            word-break: keep-all;
+        }
+        
+        .title p {
+            color: #8892b0;
+            margin-bottom: 35px;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 1px dashed #00ffcc55;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+        /* Главный flex-контейнер */
+        
+        .container {
+            width: 1000px;
+            max-width: 100%;
+            height: auto;
+            min-height: 560px;
+            background: rgba(18, 25, 45, 0.75);
+            backdrop-filter: blur(3px);
+            border: 2px solid #00ffcc;
+            border-radius: 32px;
+            padding: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 20px 35px rgba(0, 255, 204, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        /* ЛЕВАЯ СЕКЦИЯ: горизонтальные карточки (киберспорт-команды) */
+        
+        .left-side {
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        /* ПРАВАЯ СЕКЦИЯ: сетка из вертикальных элементов */
+        
+        .right-side {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+        /* Столбцы для вертикальных блоков */
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        /* Общий стиль карточек (flex-элементов) */
+        
+        .elem {
+            background: linear-gradient(145deg, #101924, #0b0f18);
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 255, 204, 0.2);
+            padding: 14px 8px;
+            margin: 0;
+            transition: all 0.25s ease;
+            cursor: default;
+            border-bottom: 2px solid #00ffcc55;
+        }
+        
+        .elem:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 255, 204, 0.25);
+            border-bottom: 2px solid #00ffcc;
+        }
+        /* Горизонтальные карточки (левая часть) */
+        
+        .horizontal {
+            width: 210px;
+            min-height: 130px;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 18px;
+            padding: 12px 18px;
+        }
+        /* Вертикальные карточки (правая часть) */
+        
+        .vertical {
+            width: 130px;
+            min-height: 170px;
+            text-align: center;
+        }
+        /* Логотип / иконка команды */
+        
+        .team-logo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #0a0f1c;
+            padding: 4px;
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 8px #00ffcc88;
+        }
+        
+        .horizontal .team-logo {
+            width: 70px;
+            height: 70px;
+        }
+        /* Текст названия */
+        
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ccf7ff;
+            margin: 8px 0 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .horizontal .name {
+            font-size: 20px;
+            margin: 0 0 6px 0;
+            text-align: left;
+        }
+        /* Доп. факт/описание */
+        
+        .fact {
+            font-size: 11px;
+            text-align: center;
+            color: #8d9bb0;
+            font-family: 'Segoe UI', monospace;
+            font-weight: 500;
+            max-width: 110px;
+        }
+        
+        .horizontal .fact {
+            text-align: left;
+            max-width: 120px;
+            font-size: 11px;
+        }
+        /* Адаптивность */
+        
+        @media (max-width: 780px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .left-side {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .horizontal {
+                width: 45%;
+            }
+            .right-side {
+                justify-content: center;
+            }
+            .title h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="title">
+            <h1>⚡ CYBER LEGENDS ⚡</h1>
+            <p>элитные киберспортивные команды</p>
+        </div>
+
+        <div class="container">
+            <!-- ЛЕВАЯ СЕКЦИЯ: две горизонтальные карточки (команды-легенды) -->
+            <div class="left-side">
+                <div class="elem horizontal">
+                    <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=f4a196c3114c43743138d2ffb2d852c0a42dd01c-5210344-images-thumbs&n=13" alt="NAVI">
+                    <div style="display: flex; flex-direction: column;">
+                        <div class="name">NAVI</div>
+                        <div class="fact">Major-победители • легендарный состав</div>
+                    </div>
+                </div>
+
+                <div class="elem horizontal">
+                    <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=f304741a908caae499d16326f8618600_l-5859076-images-thumbs&n=13" alt="G2">
+                    <div style="display: flex; flex-direction: column;">
+                        <div class="name">G2 ESPORTS</div>
+                        <div class="fact">чемпионы мира • харизма и мастерство</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ СЕКЦИЯ: 4 колонки с вертикальными карточками (команды и киберигроки) -->
+            <div class="right-side">
+                <!-- Колонка 1 -->
+                <div class="column">
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=d05a10192b36eff3745c80b15aabe78ee3fcdbc4-5231073-images-thumbs&n=13" alt="Fnatic">
+                        <div class="name">FNATIC</div>
+                        <div class="fact">короли LoL • legacy с 2011</div>
+                    </div>
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=2742893477286ae1c228425b906197e7_l-12820356-images-thumbs&n=13" alt="Vitality">
+                        <div class="name">VITALITY</div>
+                        <div class="fact">ультимативная сила EU</div>
+                    </div>
+                </div>
+
+                <!-- Колонка 2 -->
+                <div class="column">
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=dc1e848663e7cb2381354e08ee8e3690_l-4228230-images-thumbs&n=13" alt="Team Spirit">
+                        <div class="name">TEAM SPIRIT</div>
+                        <div class="fact">The International победители</div>
+                    </div>
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=b9aa92e47266d19a106e13ae73a6ec11b4d70afb-12384509-images-thumbs&n=13" alt="Cloud9">
+                        <div class="name">CLOUD9</div>
+                        <div class="fact">культовый org • щит и дракон</div>
+                    </div>
+                </div>
+
+                <!-- Колонка 3 -->
+                <div class="column">
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=a73703e7ea8dfc2d02827b5a67f43b29e2a735b2-5478356-images-thumbs&n=13" alt="FaZe Clan">
+                        <div class="name">FAZE CLAN</div>
+                        <div class="fact">звёздный состав • контент-империя</div>
+                    </div>
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=af278bc97329e400f6a014959f1ed2be4c97c17e-5293988-images-thumbs&n=13" alt="OG">
+                        <div class="name">OG</div>
+                        <div class="fact">дважды TI • чистое сердце Dota</div>
+                    </div>
+                </div>
+
+                <!-- Колонка 4 -->
+                <div class="column">
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://avatars.mds.yandex.net/i?id=a0571afc214344e101196edf5de9811d3566c376-7759147-images-thumbs&n=13" alt="T1">
+                        <div class="name">T1</div>
+                        <div class="fact">династия League • GOAT Faker</div>
+                    </div>
+                    <div class="elem vertical">
+                        <img class="team-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Ence_%28esports%29_logo.svg/1280px-Ence_%28esports%29_logo.svg.png" alt="ENCE">
+                        <div class="name">ENCE</div>
+                        <div class="fact">финалисты мажора • сильная команда</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

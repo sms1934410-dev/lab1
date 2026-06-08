@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Страница 4 - Таблицы и позиционирование</title>
+    <meta charset="UTF-8">
+    <style>
+        /* общие стили — как обычно пишут студенты */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            font-size: 100%;
+        }
+        /* фиксированное меню */
+        
+        .fixed-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            z-index: 100;
+            text-align: center;
+        }
+        
+        .fixed-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 1.1em;
+        }
+        
+        .fixed-menu a:hover {
+            background-color: #ff6600;
+            color: black;
+            font-size: 1.3em;
+            border-radius: 5px;
+        }
+        /* основной контент */
+        
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* рекламный блок с абсолютным бейджем */
+        
+        .ad-block {
+            position: relative;
+            background-color: #ffffff;
+            border: 2px solid #5a39df;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ad-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff6600;
+            color: white;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ad-block h3 {
+            color: #ff3300;
+            margin: 0 0 5px 0;
+        }
+        
+        .ad-block p {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+        /* две колонки через flex */
+        
+        .two-columns {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .column {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        /* обтекание картинки */
+        
+        .float-img {
+            float: left;
+            margin: 0 15px 10px 0;
+            width: 30%;
+            max-width: 200px;
+            border: 1px solid #aaa;
+            padding: 5px;
+            background-color: #eee;
+        }
+        
+        .float-img img {
+            width: 100%;
+        }
+        /* таблица атрибутов */
+        
+        .attr-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .attr-table th,
+        .attr-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .attr-table th {
+            background-color: #f2f2f2;
+        }
+        
+        h1 {
+            color: #fa0c0c;
+        }
+        /* относительное позиционирование */
+        
+        .relative-demo {
+            position: relative;
+            left: 10px;
+            background-color: #f9f9f9;
+            padding: 5px;
+            margin-top: 15px;
+            border-left: 3px solid #ff6600;
+        }
+        /* обычная таблица для CSS3 результатов */
+        
+        table,
+        th,
+        td {
+            border: 1px solid #333;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        /* мелкие правки для аккуратности */
+        
+        .column p {
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="fixed-menu">
+        <a href="page2.html">Страница 2 (CSS)</a>
+        <a href="page5.html">Страница 5 (Position)</a>
+    </div>
+
+    <div class="content">
+
+        <!-- реклама с абсолютным бейджем -->
+        <div class="ad-block">
+            <div class="ad-badge">🔥 NEW</div>
+            <h3>Супер реклама!</h3>
+            <p>Изучай CSS и стань профи!</p>
+            <p><strong>Скидка 50%</strong> на курсы</p>
+            <p>Торопись!</p>
+        </div>
+
+        <div class="two-columns">
+
+            <!-- левая колонка: определение CSS -->
+            <div class="column">
+                <h1>Определение CSS</h1>
+                <div class="float-img">
+                    <img src="1.png" alt="CSS">
+                    <p>Каскадные таблицы</p>
+                </div>
+                <p><strong>Каскадные таблицы стилей (CSS)</strong> — это мощный механизм, позволяющий описать правила оформления HTML документа, отделить их от содержания. CSS, как прогрессивная и востребованная технология, проходит долгий путь развития
+                    и совершенствования. Давай посмотрим, как всё начиналось! Для начала включим машину времени и окунёмся ненадолго в прошлое.</p>
+                <p><strong>Хокон Виум Ли</strong> предложил концепцию каскадных таблиц стилей.</p>
+                <p><strong>Тим Бернерс-Ли</strong> — учёный, изобретатель URI, URL, HTTP, HTML, создатель Всемирной паутины (совместно с Робертом Кайо) и действующий глава Консорциума Всемирной паутины.</p>
+                <div class="relative-demo">
+                    📌 Относительное позиционирование (сдвиг вправо на 10px)
+                </div>
+            </div>
+
+            <!-- правая колонка: CSS2.1 и CSS3 + таблица -->
+            <div class="column">
+                <h2>CSS 2.1</h2>
+                <p>8 сентября 2009 года утверждена CSS2.1. Это попытка привести спецификацию в соответствие с реалиями:</p>
+                <ul>
+                    <li>исправлен ряд ошибок CSS2;</li>
+                    <li>изменились некоторые моменты, реализация которых в браузерах отличается от спецификации;</li>
+                    <li>убрали нереализованные особенности;</li>
+                    <li>удалили фрагменты, устаревшие в CSS3;</li>
+                    <li>добавили новые значения свойств.</li>
+                </ul>
+                <h2>CSS 3</h2>
+                <p>Результаты эксперимента (одна страница на CSS2 и CSS3):</p>
+                <table style="width:100%">
+                    <tr>
+                        <th>Параметр</th>
+                        <th>CSS2</th>
+                        <th>CSS3</th>
+                        <th>Результаты</th>
+                    </tr>
+                    <tr>
+                        <td>Время разработки</td>
+                        <td>73 мин</td>
+                        <td>49 мин</td>
+                        <td>CSS3 33% быстрее</td>
+                    </tr>
+                    <tr>
+                        <td>Размер</td>
+                        <td>849.2 KB</td>
+                        <td>767.9 KB</td>
+                        <td>CSS3 9.5% меньше</td>
+                    </tr>
+                    <tr>
+                        <td>Запросы</td>
+                        <td>22</td>
+                        <td>12</td>
+                        <td>CSS3 45% меньше</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

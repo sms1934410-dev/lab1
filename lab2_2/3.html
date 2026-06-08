@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб. работа №3 — обмен</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #e9edf2;
+            font-family: system-ui, 'Inter', -apple-system, 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.6rem;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 2rem;
+            max-width: 460px;
+            width: 100%;
+            padding: 2rem 1.8rem 2rem;
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(1px);
+        }
+        
+        .title {
+            font-weight: 510;
+            font-size: 1.9rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 2rem;
+            color: #1f2d3d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .title:before {
+            content: "⇄";
+            font-size: 1.6rem;
+            opacity: 0.7;
+        }
+        
+        .var-panel {
+            background: #f7fafd;
+            border-radius: 1.7rem;
+            padding: 1.6rem;
+            margin: 1rem 0;
+        }
+        
+        .var-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 1px dashed #c9daea;
+            padding: 1rem 0.2rem;
+        }
+        
+        .var-row:last-child {
+            border-bottom: none;
+        }
+        
+        .var-row label {
+            font-size: 1.2rem;
+            font-weight: 460;
+            background: #e2ecf3;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+        }
+        
+        .var-row input {
+            font-size: 1.1rem;
+            background: white;
+            border: 1px solid #cbdde6;
+            border-radius: 56px;
+            padding: 0.45rem 1rem;
+            width: 160px;
+            text-align: center;
+            font-family: monospace;
+            transition: 0.08s linear;
+        }
+        
+        .var-row input:focus {
+            border-color: #0284c7;
+            outline: none;
+            box-shadow: 0 0 0 2px #b9dcff;
+        }
+        
+        .swap-sign {
+            text-align: center;
+            font-size: 1.3rem;
+            margin: 0.2rem 0;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        
+        .footnote {
+            background: #eef3f1;
+            border-radius: 2rem;
+            padding: 0.7rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #446b7e;
+            margin: 1.2rem 0 1.4rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            padding: 0.25rem 0.9rem;
+            background: #e9f0f5;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            color: #2c5a74;
+        }
+        
+        .nav-links a:hover {
+            background: #dee9f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">поменять местами</div>
+        <div class="var-panel">
+            <div class="var-row">
+                <label>переменная A</label>
+                <input type="text" id="varA" value="кофе" spellcheck="false">
+            </div>
+            <div class="swap-sign">⬇ ⟳ ⬇</div>
+            <div class="var-row">
+                <label>переменная B</label>
+                <input type="text" id="varB" value="чай" spellcheck="false">
+            </div>
+        </div>
+        <div class="footnote">
+            ✦ изменение любого поля → автоматический обмен ✦
+        </div>
+        <div class="nav-links">
+            <a href="index.html">◀ площадь</a>
+            <a href="2.html">расстояние ▶</a>
+        </div>
+    </div>
+
+    <script>
+        const fieldA = document.getElementById('varA');
+        const fieldB = document.getElementById('varB');
+
+        let updateLock = false;
+
+        function exchangeValues() {
+            if (updateLock) return;
+            updateLock = true;
+            let temp = fieldA.value;
+            fieldA.value = fieldB.value;
+            fieldB.value = temp;
+            updateLock = false;
+        }
+
+        function handleInputEvent(e) {
+            if (updateLock) return;
+            updateLock = true;
+            let a = fieldA.value;
+            let b = fieldB.value;
+            fieldA.value = b;
+            fieldB.value = a;
+            updateLock = false;
+        }
+
+        fieldA.addEventListener('input', handleInputEvent);
+        fieldB.addEventListener('input', handleInputEvent);
+    </script>
+</body>
+
+</html>

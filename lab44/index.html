@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета участника</title>
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .card {
+            max-width: 550px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #aaa;
+            padding: 20px 25px 25px 25px;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        h3 {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+            font-weight: normal;
+            border-left: 4px solid #6c6c6c;
+            padding-left: 12px;
+            color: #1e1e1e;
+        }
+        
+        .field {
+            margin-bottom: 12px;
+        }
+        
+        .field label {
+            display: inline-block;
+            width: 110px;
+            font-size: 14px;
+            color: #2c2c2c;
+        }
+        
+        input,
+        select {
+            background: #fefefe;
+            border: 1px solid #9a9a9a;
+            padding: 5px 6px;
+            width: 180px;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+        /* СТИЛЬ ДЛЯ ПУСТЫХ ПОЛЕЙ — КРАСНАЯ ПОДСВЕТКА */
+        
+        input.error-field {
+            border: 2px solid #ff5555;
+            background-color: #ffe0e0;
+            box-shadow: 0 0 3px rgba(255, 0, 0, 0.3);
+        }
+        /* Подсказка об ошибке под полем */
+        
+        .error-message {
+            color: #cc0000;
+            font-size: 11px;
+            margin-left: 115px;
+            margin-top: 3px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .task-row {
+            margin-bottom: 8px;
+        }
+        
+        .task-row span {
+            display: inline-block;
+            width: 70px;
+            font-size: 13px;
+        }
+        
+        hr {
+            margin: 18px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+        
+        button {
+            background: #e0e0e0;
+            border: 1px solid #7a7a7a;
+            padding: 6px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        
+        button:hover {
+            background: #cecece;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+        }
+        
+        .buttons button {
+            margin-top: 0;
+        }
+        
+        .result {
+            margin-top: 22px;
+            background: #f7f7f7;
+            padding: 12px 15px;
+            border-left: 3px solid #808080;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        
+        .small-note {
+            font-size: 12px;
+            color: #5a5a5a;
+            margin-top: 12px;
+            border-top: 1px dashed #bbb;
+            padding-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h3>Анкета участника олимпиады</h3>
+
+        <form id="anketaForm">
+            <div class="field">
+                <label>Фамилия:</label>
+                <input type="text" id="surname" name="surname" placeholder="Пример: Иванова">
+                <div class="error-message" id="surnameError">❌ Введите фамилию</div>
+            </div>
+            <div class="field">
+                <label>Номер школы:</label>
+                <input type="number" id="school" name="school" placeholder="Например: 42">
+                <div class="error-message" id="schoolError">❌ Введите номер школы</div>
+            </div>
+
+            <hr>
+
+            <div><strong>Оценки за задачи:</strong></div>
+            <div class="task-row">
+                <span>Задача 1</span>
+                <select id="t1" name="task1">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+            <div class="task-row">
+                <span>Задача 2</span>
+                <select id="t2" name="task2">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+            <div class="task-row">
+                <span>Задача 3</span>
+                <select id="t3" name="task3">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+            <div class="task-row">
+                <span>Задача 4</span>
+                <select id="t4" name="task4">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+            <div class="task-row">
+                <span>Задача 5</span>
+                <select id="t5" name="task5">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+            <div class="task-row">
+                <span>Задача 6</span>
+                <select id="t6" name="task6">
+                    <option value="0">0 (не решена)</option>
+                    <option value="10">10 баллов</option>
+                    <option value="20">20 баллов</option>
+                    <option value="30">30 баллов</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" id="submitBtn">Отправить анкету</button>
+                <button type="button" onclick="processAnketa()">Только расчёт</button>
+            </div>
+        </form>
+
+        <div class="result" id="resultBlock">
+            <span id="resultText">→ заполните анкету и нажмите «Отправить анкету»</span>
+        </div>
+        <div class="small-note">
+            * Призовые места: 1, 2, 3 или «не призовое»
+        </div>
+    </div>
+
+    <script>
+        // Функция, которая УБИРАЕТ подсветку с поля
+        function removeError(inputElement, errorElementId) {
+            inputElement.classList.remove('error-field');
+            const errorMsg = document.getElementById(errorElementId);
+            if (errorMsg) errorMsg.classList.remove('show');
+        }
+
+        // Функция, которая ДОБАВЛЯЕТ подсветку полю
+        function showError(inputElement, errorElementId) {
+            inputElement.classList.add('error-field');
+            const errorMsg = document.getElementById(errorElementId);
+            if (errorMsg) errorMsg.classList.add('show');
+        }
+
+        // Функция проверки фамилии и школы (с подсветкой)
+        function validateFields() {
+            let isValid = true;
+
+            const surnameInput = document.getElementById('surname');
+            const schoolInput = document.getElementById('school');
+
+            // Проверка фамилии (не пустая и не только пробелы)
+            if (!surnameInput.value.trim()) {
+                showError(surnameInput, 'surnameError');
+                isValid = false;
+            } else {
+                removeError(surnameInput, 'surnameError');
+            }
+
+            // Проверка школы (не пустая)
+            if (!schoolInput.value.trim()) {
+                showError(schoolInput, 'schoolError');
+                isValid = false;
+            } else {
+                removeError(schoolInput, 'schoolError');
+            }
+
+            return isValid;
+        }
+
+        // ОСНОВНАЯ ФУНКЦИЯ РАСЧЁТА (сумма и место)
+        function processAnketa() {
+            let s1 = parseInt(document.getElementById("t1").value, 10);
+            let s2 = parseInt(document.getElementById("t2").value, 10);
+            let s3 = parseInt(document.getElementById("t3").value, 10);
+            let s4 = parseInt(document.getElementById("t4").value, 10);
+            let s5 = parseInt(document.getElementById("t5").value, 10);
+            let s6 = parseInt(document.getElementById("t6").value, 10);
+
+            let scores = [s1, s2, s3, s4, s5, s6];
+            let total = scores.reduce((acc, val) => acc + val, 0);
+
+            let place = 0;
+            if (scores.every(s => s === 30)) {
+                place = 1;
+            } else if (scores.every(s => s >= 20) && scores.some(s => s === 30)) {
+                place = 2;
+            } else if (scores.every(s => s === 20)) {
+                place = 3;
+            }
+
+            let placeText = "";
+            if (place === 1) placeText = "1 место";
+            else if (place === 2) placeText = "2 место";
+            else if (place === 3) placeText = "3 место";
+            else placeText = "не призовое (нет места)";
+
+            let surname = document.getElementById("surname").value.trim();
+            let school = document.getElementById("school").value;
+            let schoolInfo = (surname ? surname + ", " : "") + (school ? "школа №" + school : "школа не указана");
+
+            document.getElementById("resultText").innerHTML =
+                schoolInfo + "<br>" +
+                "Сумма баллов: " + total + "<br>" +
+                "Результат: " + placeText;
+
+            return {
+                surname: surname,
+                school: school,
+                scores: scores,
+                total: total,
+                place: place,
+                placeText: placeText
+            };
+        }
+
+        // Функция ОТПРАВКИ (submit)
+        function submitForm(event) {
+            // Останавливаем перезагрузку страницы
+            event.preventDefault();
+
+            // СНАЧАЛА ПРОВЕРЯЕМ ПОЛЯ С ПОДСВЕТКОЙ
+            const isValid = validateFields();
+
+            if (!isValid) {
+                // Если есть пустые поля — показываем сообщение и НЕ отправляем
+                alert("❌ Заполните выделенные красным поля (фамилия и школа)!");
+
+                // Дополнительно: прокручиваем к первому пустому полю
+                const firstError = document.querySelector('.error-field');
+                if (firstError) {
+                    firstError.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                    firstError.focus();
+                }
+                return false;
+            }
+
+            // Если всё заполнено — делаем расчёт
+            let result = processAnketa();
+
+            // ИМИТАЦИЯ ОТПРАВКИ НА СЕРВЕР
+            console.log("=== ОТПРАВКА ДАННЫХ ===");
+            console.log("Фамилия:", result.surname);
+            console.log("Школа:", result.school);
+            console.log("Оценки:", result.scores);
+            console.log("Сумма баллов:", result.total);
+            console.log("Место:", result.placeText);
+            console.log("=== КОНЕЦ ОТПРАВКИ ===");
+
+            // Сообщаем пользователю об успехе
+            alert(
+                "✅ Анкета успешно отправлена!\n\n" +
+                "📋 Фамилия: " + result.surname + "\n" +
+                "🏫 Школа: №" + result.school + "\n" +
+                "📊 Сумма баллов: " + result.total + "\n" +
+                "🏆 Место: " + result.placeText + "\n\n" +
+                "(данные отправлены на сервер)"
+            );
+
+            return true;
+        }
+
+        // ДОПОЛНИТЕЛЬНО: убираем подсветку, когда пользователь начинает вводить текст
+        function setupLiveValidation() {
+            const surnameInput = document.getElementById('surname');
+            const schoolInput = document.getElementById('school');
+
+            surnameInput.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    removeError(this, 'surnameError');
+                } else {
+                    showError(this, 'surnameError');
+                }
+            });
+
+            schoolInput.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    removeError(this, 'schoolError');
+                } else {
+                    showError(this, 'schoolError');
+                }
+            });
+        }
+
+        // Привязываем обработчики событий
+        const form = document.getElementById("anketaForm");
+        form.addEventListener("submit", submitForm);
+
+        // Включаем "живую" проверку (подсветка появляется/исчезает при вводе)
+        setupLiveValidation();
+    </script>
+</body>
+
+</html>

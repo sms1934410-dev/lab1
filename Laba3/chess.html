@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        
+        button {
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 16px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        
+        button:hover {
+            background: #e0e0e0;
+        }
+        
+        .board {
+            background: #fafafa;
+            border: 1px solid #eee;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .board pre {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            margin: 0;
+            display: inline-block;
+        }
+        
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Задание 2. Шахматная доска</h2>
+
+        <button onclick="draw(8)">8x8</button>
+        <button onclick="customSize()">Свой размер</button>
+
+        <div id="board" class="board">
+            Нажмите кнопку
+        </div>
+
+        <a href="index.html" class="back">← На главную</a>
+    </div>
+
+    <script>
+        function draw(size) {
+            let out = "";
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    out += (i + j) % 2 === 0 ? "#" : " ";
+                }
+                out += "\n";
+            }
+            document.getElementById('board').innerHTML = "<pre>" + out + "</pre>";
+        }
+
+        function customSize() {
+            let s = prompt("Размер доски:");
+            if (s === null) {
+                document.getElementById('board').innerHTML = "Ввод отменён";
+                return;
+            }
+            s = Number(s);
+            if (isNaN(s) || s <= 0) {
+                document.getElementById('board').innerHTML = "Некорректный размер";
+                return;
+            }
+            draw(s);
+        }
+    </script>
+</body>
+
+</html>

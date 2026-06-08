@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ЛР10 - Страница 5 (Позиционирование)</title>
+    <meta charset="UTF-8">
+    <style>
+        /* базовые стили — всё как в обычной студенческой работе */
+        
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ecf0f1;
+            font-size: 14px;
+        }
+        /* верхнее фиксированное меню */
+        
+        .top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 8px 0;
+            text-align: center;
+            z-index: 100;
+        }
+        
+        .top-menu a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 8px 20px;
+            display: inline-block;
+            font-size: 14px;
+        }
+        
+        .top-menu a:hover {
+            background: #e67e22;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        /* основной контент */
+        
+        .content {
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        /* рекламный блок */
+        
+        .ad-box {
+            position: relative;
+            background: #ffeaa7;
+            border: 2px solid #d35400;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .ad-sticker {
+            position: absolute;
+            bottom: -12px;
+            right: 20px;
+            background: #d35400;
+            color: white;
+            padding: 3px 12px;
+            font-size: 11px;
+            border-radius: 15px;
+        }
+        /* две колонки через float */
+        
+        .row2 {
+            overflow: hidden;
+        }
+        
+        .left-col {
+            float: left;
+            width: 48%;
+            margin-right: 4%;
+        }
+        
+        .right-col {
+            float: left;
+            width: 48%;
+        }
+        /* обтекание картинки */
+        
+        .float-left {
+            float: left;
+            margin: 0 15px 10px 0;
+            width: 120px;
+            border: 1px solid #bbb;
+            padding: 4px;
+            background: #fff;
+        }
+        
+        .float-left img {
+            width: 100%;
+        }
+        /* relative блок */
+        
+        .relative-block {
+            position: relative;
+            left: 15px;
+            background: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 8px;
+            margin: 15px 0;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 22px;
+            border-left: 4px solid #e67e22;
+            padding-left: 12px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        td,
+        th {
+            border: 1px solid #999;
+            padding: 8px;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #bdc3c7;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            font-size: 11px;
+            clear: both;
+        }
+        
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-menu">
+        <a href="page4.html">CSS Margin</a>
+        <a href="page5.html">CSS Position</a>
+    </div>
+
+    <div class="content">
+        <div class="ad-box">
+            <div class="ad-sticker">🔥 Топ</div>
+            <h3 style="margin:5px 0;">Книга дня: "Мастер и Маргарита"</h3>
+            <p>Читай в нашей библиотеке</p>
+        </div>
+
+        <h2>Позиционирование в CSS</h2>
+
+        <div class="row2">
+            <div class="left-col">
+                <div class="float-left">
+                    <img src="https://picsum.photos/id/42/120/100" alt="пример">
+                </div>
+                <p><strong>position</strong> — свойство, определяющее тип позиционирования элемента. Основных значений 4: static (по умолчанию), relative, absolute, fixed.</p>
+
+                <div class="relative-block">
+                    <strong>🔸 position: relative;</strong><br> Этот блок сдвинут влево на 15px относительно своего обычного положения.
+                </div>
+
+                <p>При <code>absolute</code> и <code>fixed</code> элемент выпадает из потока. <code>Fixed</code> привязывается к окну браузера.</p>
+                <p>Z-index управляет порядком слоёв.</p>
+            </div>
+
+            <div class="right-col">
+                <h3 style="color:#d35400;">Таблица значений</h3>
+                <table>
+                    <tr>
+                        <th>Значение</th>
+                        <th>Характеристика</th>
+                    </tr>
+                    <tr>
+                        <td>static</td>
+                        <td>обычный поток, смещения не работают</td>
+                    </tr>
+                    <tr>
+                        <td>relative</td>
+                        <td>смещение относительно себя</td>
+                    </tr>
+                    <tr>
+                        <td>absolute</td>
+                        <td>относительно ближайшего позиционированного предка</td>
+                    </tr>
+                    <tr>
+                        <td>fixed</td>
+                        <td>относительно окна браузера</td>
+                    </tr>
+                </table>
+
+                <div class="code-example">
+                    .menu {<br> &nbsp;&nbsp;&nbsp;&nbsp;position: fixed;<br> &nbsp;&nbsp;&nbsp;&nbsp;top: 0;<br> &nbsp;&nbsp;&nbsp;&nbsp;width: 100%;<br> }
+                </div>
+                <p style="margin-top: 10px;">Свойство <strong>z-index</strong> задаёт порядок перекрытия элементов.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Лабораторная работа №10 — Вариант 4 | Страница 5
+        </div>
+    </div>
+
+</body>
+
+</html>
